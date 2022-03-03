@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Authenticated from "@/Layouts/Authenticated";
 import { Head } from "@inertiajs/inertia-react";
+import addString from "@/Helpers";
 
 export default function JsCalc(props) {
     const [calcString, setCalcString] = useState("");
@@ -14,75 +15,15 @@ export default function JsCalc(props) {
         setCalcString(event.target.value);
     }
 
-    const add = (e, input) => {
+    const handleSubmit = (e, input) => {
         e.preventDefault();
         setCalcString("");
-        const inputDelim = input.match(/[^//].*(?=\\n)/g);
-        let inputArr = [];
-
-        if (inputDelim) {
-            const stringStartIndex = input.lastIndexOf("\\n");
-            const inputString = input.substring(stringStartIndex + 2);
-            inputArr = inputString.split(inputDelim[0]);
-        } else {
-            inputArr = input.replace(/\\n/g, "").split(",");
-        }
-
-        try {
-            calulateTotal(inputArr, inputDelim);
-        } catch (e) {
-            console.log(e);
-        }
-    };
-
-    const calulateTotal = (inputArr, delimiter) => {
-        let total = 0;
-        const negatives = [];
-        const processedArr = [];
-
-        inputArr.map((number) => {
-            let currNum = parseInt(number, 10);
-
-            if (isNaN(currNum)) currNum = 0;
-
-            if (Math.sign(currNum) === -1) {
-                processedArr.push(currNum);
-                negatives.push(currNum);
-            } else if (!(currNum > 1000)) {
-                processedArr.push(currNum);
-                total = total + currNum;
-            }
-
-            return true;
-        });
-
-        if (negatives.length > 0) {
-            setCalcHistory([
-                ...calcHistory,
-                {
-                    inputArr: processedArr,
-                    total: "Error: negative numbers used",
-                    delimiter,
-                    error: true,
-                },
-            ]);
-            throw new Error(
-                `Negative numbers not allowed (${negatives.toString()})`
-            );
-        }
-
+        const calculated = addString(input);
         setCalcHistory([
             ...calcHistory,
-            { inputArr: processedArr, total, delimiter },
-        ]);
-
-        return total;
-    };
-
-    useEffect(() => {
-        // kill this
-        console.log(calcString);
-    }, [calcString]);
+            calculated
+        ])
+    }
 
     return (
         <Authenticated
@@ -102,7 +43,7 @@ export default function JsCalc(props) {
                         <h1 className="mb-8 text-xl">Calculator</h1>
                         <div className="flex space-x-4">
                             <div className="w-1/2">
-                                <form onSubmit={(e) => add(e, calcString)}>
+                                <form onSubmit={(e) => handleSubmit(e, calcString)}>
                                     <label
                                         htmlFor="email"
                                         className="block text-sm font-medium text-gray-700"
