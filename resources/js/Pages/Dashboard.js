@@ -35,18 +35,26 @@ export default function Dashboard(props) {
                                 The JS tests can be run via{" "}
                                 <span className="bg-slate-200 w-content">
                                     <code>npm run test</code>.
-                                </span>
-                                {" "}It should be noted that all calculator entries here only live in state and will not survive refreshes or navigations.
+                                </span>{" "}
+                                It should be noted that all calculator entries
+                                here only live in state and will not survive
+                                refreshes or navigations.
                             </p>
                             <p className="p-2">
                                 The PHP tests can be run via{" "}
                                 <span className="bg-slate-200 w-content">
                                     <code>???</code>.
-                                </span>
-                                {" "}It should be noted that all calculator entries will be stored in the connected MySQL database and the results will be persisted.
+                                </span>{" "}
+                                It should be noted that all calculator entries
+                                will be stored in the connected MySQL database
+                                and the results will be persisted.
                             </p>
                             <p className="p-2">
-                                All source code can be found at ?????
+                                All source code can be found at {" "}
+                                <a
+                                    href="https://github.com/smesj/string-calc"
+                                    className="underline text-gray-900 dark:text-white"
+                                >https://github.com/smesj/string-calc</a>
                             </p>
 
                             <div className="p-2">
@@ -64,9 +72,10 @@ export default function Dashboard(props) {
                                         href="https://www.casecare.ca/"
                                         className="underline text-gray-900 dark:text-white"
                                     >
-                                        Case Care 
-                                    </a>
-                                    {" "}tech stack currently in use to hopefully reflect a few of my competencies.
+                                        Case Care
+                                    </a>{" "}
+                                    tech stack currently in use to hopefully
+                                    reflect a few of my competencies.
                                 </p>
                                 <div className="flex justify-center">
                                     <img src={stack} />
