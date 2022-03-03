@@ -40,3 +40,11 @@ test('sums string 5,10,-20 to equal "Error: negative numbers used"', () => {
         error:true
     })
 })
+
+test('sums string 5,10,20 use delimiter :: to equal 15', () => {
+    expect(addString('//::\\n5::10:20\\n')).toStrictEqual({
+        inputArr: [5,10],
+        delimiter: ['::'],
+        total: 15
+    })
+})
