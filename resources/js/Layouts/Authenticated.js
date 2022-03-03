@@ -22,10 +22,13 @@ export default function Authenticated({ auth, header, children }) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
+                                    Welcome
                                 </NavLink>
                                 <NavLink href={route('javascript')} active={route().current('javascript')}>
-                                    JavaScript
+                                    JavaScript Calculator
+                                </NavLink>
+                                <NavLink href={route('php')} active={route().current('php')}>
+                                    PHP Calculator
                                 </NavLink>
                             </div>
                         </div>
