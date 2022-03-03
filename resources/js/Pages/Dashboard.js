@@ -24,8 +24,35 @@ export default function Dashboard(props) {
                             <p className="p-2">
                                 Included here is the implementation of the
                                 string calcuator logic as outlined in the take
-                                home assignment.
+                                home assignment. The application includes auth,
+                                database and can be easily spun up locally via
+                                docker/docker compose.
                             </p>
+                            <p className="p-2">
+                                To run this application locally requires the
+                                dependencies{" "}
+                                <span className="bg-slate-200 w-content">
+                                    <code>
+                                        PHP 8.1, Composer 2.2.7, Docker,
+                                        Docker-Compose
+                                    </code>
+                                    .
+                                </span>
+                            </p>
+                            <p>
+                                You may easily install dependencies using the
+                                folling docker command
+                            </p>
+                            <span className="bg-slate-200 w-content">
+                                <code>
+                                    docker run --rm \<br />
+                                    -u "$(id -u):$(id -g)" \<br />
+                                    -v $(pwd):/var/www/html \<br />
+                                    -w /var/www/html \<br />
+                                    laravelsail/php81-composer:latest \<br />
+                                    composer install --ignore-platform-reqs
+                                </code>
+                            </span>
                             <p className="p-2">
                                 I have included a purely JavaScript
                                 implementation as well as a back end PHP
@@ -50,11 +77,13 @@ export default function Dashboard(props) {
                                 and the results will be persisted.
                             </p>
                             <p className="p-2">
-                                All source code can be found at {" "}
+                                All source code can be found at{" "}
                                 <a
                                     href="https://github.com/smesj/string-calc"
                                     className="underline text-gray-900 dark:text-white"
-                                >https://github.com/smesj/string-calc</a>
+                                >
+                                    https://github.com/smesj/string-calc
+                                </a>
                             </p>
 
                             <div className="p-2">
