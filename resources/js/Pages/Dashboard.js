@@ -41,7 +41,7 @@ export default function Dashboard(props) {
                             </p>
                             <p>
                                 You may easily install dependencies using the
-                                folling docker command
+                                following docker command
                             </p>
                             <span className="bg-slate-200 w-content">
                                 <code>
