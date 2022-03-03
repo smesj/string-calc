@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StringCalcController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -35,5 +36,9 @@ Route::get('/dash', function () {
 Route::get('/javascript', function () {
     return Inertia::render('JsCalc');
 })->middleware(['auth', 'verified'])->name('javascript');
+
+Route::get('/php', [StringCalcController::class, 'index'])->middleware(['auth', 'verified'])->name('php');
+Route::post('/php/calc', [StringCalcController::class, 'calculate'])->middleware(['auth', 'verified'])->name('php.calc');
+
 
 require __DIR__.'/auth.php';
