@@ -96,15 +96,6 @@ export default function Login({ status, canResetPassword }) {
                     >
                         Register
                     </Link>
-                    {canResetPassword && (
-                        <Link
-                            href={route("password.request")}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
                     <Button className="ml-4" processing={processing}>
                         Log in
                     </Button>

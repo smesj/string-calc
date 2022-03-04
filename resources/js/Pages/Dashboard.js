@@ -39,11 +39,11 @@ export default function Dashboard(props) {
                                     .
                                 </span>
                             </p>
-                            <p>
+                            <p className="p-2">
                                 You may easily install dependencies using the
                                 following docker command
                             </p>
-                            <span className="bg-slate-200 w-content">
+                            <p className="bg-slate-200 w-content p-2">
                                 <code>
                                     docker run --rm \<br />
                                     -u "$(id -u):$(id -g)" \<br />
@@ -52,7 +52,7 @@ export default function Dashboard(props) {
                                     laravelsail/php81-composer:latest \<br />
                                     composer install --ignore-platform-reqs
                                 </code>
-                            </span>
+                            </p>
                             <p className="p-2">
                                 I have included a purely JavaScript
                                 implementation as well as a back end PHP
@@ -70,7 +70,7 @@ export default function Dashboard(props) {
                             <p className="p-2">
                                 The PHP tests can be run via{" "}
                                 <span className="bg-slate-200 w-content">
-                                    <code>???</code>.
+                                    <code>(php tests current unavailable due to time constraints, available upon request)</code>.
                                 </span>{" "}
                                 It should be noted that all calculator entries
                                 will be stored in the connected MySQL database
